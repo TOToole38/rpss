@@ -3,23 +3,23 @@ require "rpss/version"
 module Rpss
 	# Welcome to Rock Paper Scissors Shoot! 
 	# Start by picking rock, paper or scissors 
-	def start_game 
+	def self.start_game 
 		puts "Welcome to Rock, Paper, Scissors!"
 		take_turn
 	end 
 
 
 
-	private 
+	# private 
 
 
-	def take_turn
+	def self.take_turn
 		print "Enter your move:  "
 		move = gets.strip.to_s.downcase
 		validate_move(move)
 	end 
 
-	def validate_move(move)
+	def self.validate_move(move)
 		if move == "rock" 
 			compare_to_rock
 		elsif move == "scissors"
@@ -33,7 +33,7 @@ module Rpss
 
 
 	# The computer will then also randomly select an option. 
-	 def computer_move
+	 def self.computer_move
 	 	random_number = rand(9)
 
 	 	if random_number < 3
@@ -50,7 +50,7 @@ module Rpss
 
 
 	# Then we see who wins by comparing the player selection to the computer selection! 
-	def compare_to_rock 
+	def self.compare_to_rock 
 		cmove = computer_move
 
 		if cmove == "scissors"
@@ -62,7 +62,7 @@ module Rpss
 		end
 	end
 
-	def compare_to_paper
+	def self.compare_to_paper
 		cmove = computer_move
 
 		if cmove == "scissors"
@@ -74,7 +74,7 @@ module Rpss
 		end
 	end
 
-	def compare_to_scissors
+	def self.compare_to_scissors
 		cmove = computer_move
 
 		if cmove == "rock"
